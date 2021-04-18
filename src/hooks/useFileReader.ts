@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const noop = () => {};
 
 interface UseFileReaderOptions {
-  method?(reader: FileReader, file: any): any;
+  method?(reader: FileReader, file: File): any;
   onload?: any;
   autoRead?: boolean;
 }

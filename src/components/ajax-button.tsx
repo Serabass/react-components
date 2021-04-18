@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import axios, { AxiosResponse, Method } from 'axios';
-import { Button, Popconfirm, Tooltip } from 'antd';
+import { Button, Tooltip, Popconfirm } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
-import { ButtonProps } from 'antd/lib/button/button';
-import { FileEntry } from '../../hooks/useFileReader';
+import { FileEntry } from '../hooks/useFileReader';
 
-export interface AjaxButtonProps<TReq, TRes> extends ButtonProps {
+export interface AjaxButtonProps<TReq, TRes> {
   url: string;
   data: TReq;
   onSuccess: (res: AxiosResponse<TRes>) => void;
