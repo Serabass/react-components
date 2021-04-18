@@ -16,10 +16,11 @@ plugins:
   - '@typescript-eslint'
 rules:
   "@typescript-eslint/no-explicit-any": warn
+  "@typescript-eslint/ban-ts-comment": off
+  "@typescript-eslint/no-empty-function": off
   comma-dangle: off
   quotes: error
   semi: off
   space-before-function-paren: off
   prefer-const: off
   react/display-name: off
-  "@typescript-eslint/ban-ts-comment": off

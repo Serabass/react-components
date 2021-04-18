@@ -1,8 +1,8 @@
 import React from 'react';
-import TestRenderer from 'react-test-renderer';
+import TestRenderer, { ReactTestInstance } from 'react-test-renderer';
 import { If } from '../src/components';
 
-describe('sandbox tests', () => {
+describe('If tests', () => {
   it('falsy condition', () => {
     const testRenderer = TestRenderer.create(
       <If condition={false}>
@@ -13,6 +13,7 @@ describe('sandbox tests', () => {
 
     expect(testInstance.children.length).toEqual(0);
   });
+
   it('true condition', () => {
     const testRenderer = TestRenderer.create(
       <If condition={true}>
@@ -22,6 +23,6 @@ describe('sandbox tests', () => {
     const testInstance = testRenderer.root;
 
     expect(testInstance.children.length).toEqual(1);
-    expect(testInstance.children[0].type).toBe('span');
+    expect((testInstance.children[0] as ReactTestInstance).type).toBe('span');
   });
 });
