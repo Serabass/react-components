@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
-import { AjaxCacheSettings } from '../types';
+
+export interface AjaxCacheSettings {
+  enabled: boolean;
+  lifetime: number;
+  storage?: 'localstorage' | string;
+}
 
 export interface AjaxPropsChildrenArgs<TRes> {
   response: AxiosResponse<TRes>;
@@ -198,6 +203,7 @@ Ajax.GET = <TRes extends unknown>({ children, ...props }: AjaxProps<TRes>) => (
     {children}
   </Ajax>
 );
+
 Ajax.POST = <TRes extends unknown>({ children, ...props }: AjaxProps<TRes>) => (
   // @ts-ignore
   <Ajax<TRes> method="POST" {...props}>
