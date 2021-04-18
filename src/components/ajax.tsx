@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios, { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
-import { AjaxCacheSettings } from './types';
+import { AjaxCacheSettings } from '../types';
 
 export interface AjaxPropsChildrenArgs<TRes> {
   response: AxiosResponse<TRes>;
@@ -96,7 +96,7 @@ export function Ajax<T>({
       })
       .then((res) => {
         if (!callback) {
-          callback = (newData: any) => newData;
+          callback = (newData: T) => newData;
         }
         res.data = callback(res.data, previousData);
         setResponse(res);
@@ -192,20 +192,20 @@ export function Ajax<T>({
   );
 }
 
-Ajax.GET = <TRes extends any>({ children, ...props }: AjaxProps<TRes>) => (
+Ajax.GET = <TRes extends unknown>({ children, ...props }: AjaxProps<TRes>) => (
   // @ts-ignore
   <Ajax<TRes> method="GET" {...props}>
     {children}
   </Ajax>
 );
-Ajax.POST = <TRes extends any>({ children, ...props }: AjaxProps<TRes>) => (
+Ajax.POST = <TRes extends unknown>({ children, ...props }: AjaxProps<TRes>) => (
   // @ts-ignore
   <Ajax<TRes> method="POST" {...props}>
     {children}
   </Ajax>
 );
 
-Ajax.PUT = <TRes extends any>({ children, ...props }: AjaxProps<TRes>) => (
+Ajax.PUT = <TRes extends unknown>({ children, ...props }: AjaxProps<TRes>) => (
   // @ts-ignore
   <Ajax<TRes> method="PUT" {...props}>
     {children}

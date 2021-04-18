@@ -5,7 +5,6 @@ extends:
   - 'plugin:react/recommended'
   - standard
   - "plugin:@typescript-eslint/recommended"
-  - "plugin:react/recommended"
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -20,3 +19,7 @@ rules:
   comma-dangle: off
   quotes: error
   semi: off
+  space-before-function-paren: off
+  prefer-const: off
+  react/display-name: off
+  "@typescript-eslint/ban-ts-comment": off
