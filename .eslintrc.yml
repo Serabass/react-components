@@ -4,6 +4,8 @@ env:
 extends:
   - 'plugin:react/recommended'
   - standard
+  - "plugin:@typescript-eslint/recommended"
+  - "plugin:react/recommended"
 parser: '@typescript-eslint/parser'
 parserOptions:
   ecmaFeatures:
@@ -13,4 +15,8 @@ parserOptions:
 plugins:
   - react
   - '@typescript-eslint'
-rules: {}
+rules:
+  "@typescript-eslint/no-explicit-any": warn
+  comma-dangle: off
+  quotes: error
+  semi: off
